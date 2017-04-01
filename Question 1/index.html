@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <link rel = "stylesheet" type = "text/css" href = "index.css">
+  <title>ICT373 - Question 1</title>
 </head>
 
 <body>
-  <form method = "post" action = "http://www.it.murdoch.edu.au/cgi-bin/reply1.pl">
-    First Name:
-    <input type = "text" name = "firstname" required><br>
-    Surname:
-    <input type = "text" name = "surname" required><br>
-    Email:
-    <input type = "email" name = "email" required><br>
-    Birth Date:
-    <select name = "day" id = 'day'>
-    </select>
-    <select name = "month" id = 'month' onChange="changeMonth(this.selectedIndex);">
-    </select>
-    <select name = "year" id = 'year'>
-    </select><br>
-    Favourite Sport:
-    <select name = "sport" id = 'sport'>
-    </select><br>
+  
+  <h2>Sports Register</h2>
+
+  <form id = "form" method = "post" action = "http://www.it.murdoch.edu.au/cgi-bin/reply1.pl">
+    First Name:<br>
+      <input type = "text" name = "firstname" placeholder = "First Name..." required><br>
+    Surname:<br>
+      <input type = "text" name = "surname" placeholder = "Last Name..." required><br>
+    Email:<br>
+      <input type = "email" name = "email" placeholder = "Email..." required><br>
+    Birth Date:<br>
+      <select name = "day" id = 'day'>
+      </select>
+      <select name = "month" id = 'month' onChange="changeMonth(this.selectedIndex);">
+      </select>
+      <select name = "year" id = 'year'>
+      </select><br>
+    Favourite Sport:<br>
+      <select name = "sport" id = 'sport'>
+      </select><br>
     <input type = "submit">
   </form>
   
