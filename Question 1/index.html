@@ -13,19 +13,78 @@
     Email:
     <input type = "text" name = "email"><br>
     Birth Date:
-    <select name = "day">
+    <select name = "day" id = 'day'>
       <option value = "1">1</option>
     </select>
-    <select name = "month">
-      <option value = "1">January</option>
+    <select name = "month" id = 'month' onChange="changeMonth(this.selectedIndex);">
     </select>
-    <select name = "year">
-      <option value = "1990">1990</option>
+    <select name = "year" id = 'year'>
     </select><br>
     Favourite Sport:
-    <select name = "sport">
+    <select name = "sport" id = 'sport'>
       <option value = "1">Athletics</option>
     </select>
   </form>
+  
+  <script>
+    var months = ["January", "February", "March", "April", "May", "June",
+                  "July", "August", "September", "October", "November", "December"];
+    var currMonth = "January";
+    var minYear = 1950;
+    var maxYear = 2017;
+    var daySel = document.getElementById('day');
+    var monSel = document.getElementById('month');
+    var yeaSel = document.getElementById('year');
+    for (var i = 0; i < months.length; i++)
+    {
+      var opt = document.createElement('option');
+      opt.innerHTML = months[i];
+      opt.value = months[i];
+      monSel.appendChild(opt);
+    }
+    for (var i = minYear; i <= maxYear; i++)
+    {
+      var opt = document.createElement('option');
+      opt.innerHTML = i;
+      opt.value = i;
+      yeaSel.appendChild(opt);
+    }
+    
+    function changeMonth(sel)
+    {
+      currMonth = sel;
+      if ((currMonth == "January") || (currMonth == "March") || (currMonth == "May") || (currMonth == "July") ||
+          (currMonth == "August") || (currMonth == "October") || (currMonth == "December"))
+      {
+        for (var d = 1; d <= 31; d++)
+        {
+          var opt = document.createElement('option');
+          opt.innerHTML = d;
+          opt.value = d;
+          daySel.appendChild(opt);
+        }
+      }else if ((currMonth == "September") || (currMonth == "April") || (currMonth == "June") || (currMonth == "November"))
+      {
+        for (var d = 1; d <= 30; d++)
+        {
+          var opt = document.createElement('option');
+          opt.innerHTML = d;
+          opt.value = d;
+          daySel.appendChild(opt);
+        }
+      }else if ((currMonth = "February"))
+      {
+      
+      }
+    }
+    
+    /*
+    
+    */
+  </script>
+  
+  <!--30 days:
+      September, April, June, November-->
+  
 </body>
 </html>
