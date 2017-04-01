@@ -5,16 +5,15 @@
 </head>
 
 <body>
-  <form>
+  <form method = "post" action = "http://www.it.murdoch.edu.au/cgi-bin/reply1.pl">
     First Name:
-    <input type = "text" name = "firstname"><br>
+    <input type = "text" name = "firstname" required><br>
     Surname:
-    <input type = "text" name = "surname"><br>
+    <input type = "text" name = "surname" required><br>
     Email:
-    <input type = "text" name = "email"><br>
+    <input type = "email" name = "email" required><br>
     Birth Date:
     <select name = "day" id = 'day'>
-      <option value = "1">1</option>
     </select>
     <select name = "month" id = 'month' onChange="changeMonth(this.selectedIndex);">
     </select>
@@ -22,69 +21,11 @@
     </select><br>
     Favourite Sport:
     <select name = "sport" id = 'sport'>
-      <option value = "1">Athletics</option>
-    </select>
+    </select><br>
+    <input type = "submit">
   </form>
   
-  <script>
-    var months = ["January", "February", "March", "April", "May", "June",
-                  "July", "August", "September", "October", "November", "December"];
-    var currMonth = "January";
-    var minYear = 1950;
-    var maxYear = 2017;
-    var daySel = document.getElementById('day');
-    var monSel = document.getElementById('month');
-    var yeaSel = document.getElementById('year');
-    for (var i = 0; i < months.length; i++)
-    {
-      var opt = document.createElement('option');
-      opt.innerHTML = months[i];
-      opt.value = months[i];
-      monSel.appendChild(opt);
-    }
-    for (var i = minYear; i <= maxYear; i++)
-    {
-      var opt = document.createElement('option');
-      opt.innerHTML = i;
-      opt.value = i;
-      yeaSel.appendChild(opt);
-    }
-    
-    function changeMonth(sel)
-    {
-      currMonth = sel;
-      if ((currMonth == "January") || (currMonth == "March") || (currMonth == "May") || (currMonth == "July") ||
-          (currMonth == "August") || (currMonth == "October") || (currMonth == "December"))
-      {
-        for (var d = 1; d <= 31; d++)
-        {
-          var opt = document.createElement('option');
-          opt.innerHTML = d;
-          opt.value = d;
-          daySel.appendChild(opt);
-        }
-      }else if ((currMonth == "September") || (currMonth == "April") || (currMonth == "June") || (currMonth == "November"))
-      {
-        for (var d = 1; d <= 30; d++)
-        {
-          var opt = document.createElement('option');
-          opt.innerHTML = d;
-          opt.value = d;
-          daySel.appendChild(opt);
-        }
-      }else if ((currMonth = "February"))
-      {
-      
-      }
-    }
-    
-    /*
-    
-    */
-  </script>
-  
-  <!--30 days:
-      September, April, June, November-->
+  <script src = "selectFiller.js"></script>
   
 </body>
 </html>
