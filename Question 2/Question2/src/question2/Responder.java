@@ -9,15 +9,11 @@ package question2;
  *
  * @author jaknd
  */
-public class Advertiser extends Customer {
-    private String m_advert;
-    //private PartnerSought m_partnerDescription;
-    //private Reply[]; -- ArrayList would be best
+public class Responder extends Customer {
     
-    Advertiser (String p_userName, String p_password, String p_advert)
+    Responder(String p_userName, String p_password)
     {
         super(p_userName, p_password);
-        m_advert = p_advert;
     }
     
 }
