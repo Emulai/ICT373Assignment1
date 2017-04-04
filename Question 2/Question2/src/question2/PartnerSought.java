@@ -15,4 +15,66 @@ public class PartnerSought {
     private int m_maxAge;
     private float m_minIncome;
     private float m_maxIncome;
+    
+    PartnerSought(String p_gender, int p_minAge, int p_maxAge, 
+                  float p_minIncome, float p_maxIncome)
+    {
+        m_gender = p_gender;
+        m_minAge = p_minAge;
+        m_maxAge = p_maxAge;
+        m_minIncome = p_minIncome;
+        m_maxIncome = p_maxIncome;
+    }
+    
+    public String GetGender()
+    {
+        return m_gender;
+    }
+    
+    public int GetMinAge()
+    {
+        return m_minAge;
+    }
+    
+    public int GetMaxAge()
+    {
+        return m_maxAge;
+    }
+    
+    public float GetMinIncome()
+    {
+        return m_minIncome;
+    }
+    
+    public float GetMaxIncome()
+    {
+        return m_maxIncome;
+    }
+    
+    public void SetGender(String p_gender)
+    {
+        m_gender = p_gender;
+    }
+    
+    public void SetMinAge(int p_minAge)
+    {
+        m_minAge = p_minAge;
+    }
+    
+    public void SetMaxAge(int p_maxAge)
+    {
+        m_maxAge = p_maxAge;
+    }
+    
+    public void SetMinIncome(float p_minIncome)
+    {
+        m_minIncome = p_minIncome;
+    }
+    
+    public void SetMaxIncome(float p_maxIncome)
+    {
+        m_maxIncome = p_maxIncome;
+    }
+    
+    
 }

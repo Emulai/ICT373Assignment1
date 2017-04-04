@@ -11,9 +11,10 @@ package question2;
  */
 public class Responder extends Customer {
     
-    Responder(String p_userName, String p_password)
+    Responder(String p_userName, String p_password, String p_gender,
+              int p_age, float p_income)
     {
-        super(p_userName, p_password);
+        super(p_userName, p_password, p_gender, p_age, p_income);
     }
     
 }

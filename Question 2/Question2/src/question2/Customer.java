@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package question2;
-import java.util.Currency;
 /**
  *
  * @author jaknd
@@ -14,12 +13,43 @@ public class Customer {
     protected String m_password;
     protected String m_gender;
     protected int m_age;
-    protected double m_income;
+    protected float m_income;
     
-    Customer (String p_userName, String p_password)
+    Customer (String p_userName, String p_password, String p_gender,
+              int p_age, float p_income)
     {
         m_userName = p_userName;
         m_password = p_password;
+        m_gender = p_gender;
+        m_age = p_age;
+        m_income = p_income;
     }
+    
+    public void SetGender(String p_gender)
+    {
+        m_gender = p_gender;
+    }
+    
+    public void SetAge(int p_age)
+    {
+        m_age = p_age;
+    }
+    
+    public void SetIncome(float p_income)
+    {
+        m_income = p_income;
+    }
+    
+    public String GetUsername ()
+    {
+        return m_userName;
+    }
+    
+    public String GetPassword()
+    {
+        return m_password;
+    }
+    
+    
     
 }
