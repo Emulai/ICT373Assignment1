@@ -43,17 +43,20 @@ public class Advertiser extends Customer {
     
     public boolean AddReply(Reply p_reply)
     {
-        return (m_replies.add(p_reply));
+        return m_replies.add(p_reply);
     }
     
     public void RemoveReply(Reply p_reply)
     {
-        m_replies.remove(GetReplyIndex(p_reply));
+        if (GetReplyIndex(p_reply) != -1)
+        {
+            m_replies.remove(GetReplyIndex(p_reply));
+        }
     }
     
     private int GetReplyIndex(Reply p_reply)
     {
-        return (m_replies.indexOf(p_reply));
+        return m_replies.indexOf(p_reply);
     }
     
     /*@Override

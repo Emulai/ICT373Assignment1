@@ -50,6 +50,19 @@ public class Customer {
         return m_password;
     }
     
+    public String GetGender()
+    {
+        return m_gender;
+    }
     
+    public int GetAge()
+    {
+        return m_age;
+    }
+    
+    public float GetIncome()
+    {
+        return m_income;
+    }
     
 }

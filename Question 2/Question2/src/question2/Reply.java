@@ -27,4 +27,14 @@ public class Reply {
     {
         m_owner = p_owner;
     }
+    
+    public String GetReply()
+    {
+        return m_reply;
+    }
+    
+    public Customer GetOwner()
+    {
+        return m_owner;
+    }
 }
