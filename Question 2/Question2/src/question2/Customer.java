@@ -65,4 +65,13 @@ public class Customer {
         return m_income;
     }
     
+    @Override
+    public String toString()
+    {
+        String l_tString = "UserName: " + m_userName + "\nPassword: " + m_password +
+                           "\nGender: " + m_gender + "\nAge: " + m_age + "\nIncome: " + m_income;
+        
+        return l_tString;
+    }
+    
 }

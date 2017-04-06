@@ -18,11 +18,17 @@ public class Question2 {
         Responder g_resp = new Responder("Fred", "yyt", "Male", 50, 5000);
         Customer g_cust[] = new Customer[4];
         g_cust[0] = g_resp;
+        Customer a_cust = new Customer("Mary", "HHay", "Female", 45, 50000);
         
-        if (g_cust[0] instanceof Responder)
+        for (Customer customer : g_cust)
         {
-            Responder t_resp = (Responder)g_cust[0];
-            t_resp.AddMatch(t_resp);
+            System.out.println(customer.toString());
+            if (g_cust[0] instanceof Responder)
+            {
+                Responder t_resp = (Responder)g_cust[0];
+                t_resp.AddMatch(a_cust);
+                System.out.print(t_resp.toString());
+            }
         }
         
     }

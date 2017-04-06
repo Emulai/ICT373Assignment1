@@ -32,4 +32,16 @@ public class Responder extends Customer {
         }
     }
     
+    @Override 
+    public String toString()
+    {
+      String l_tString = super.toString();
+      
+      for (Customer customer : m_matches)
+      {
+          l_tString = l_tString + "\nMatches: " + customer.toString();
+      }
+      
+      return l_tString;
+    }
 }
