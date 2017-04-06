@@ -13,10 +13,10 @@ public class Responder extends Customer {
     
     private ArrayList<Customer> m_matches = new ArrayList<Customer>();
     
-    Responder(String p_userName, String p_password, String p_gender,
+    Responder(String p_userName, String p_gender,
               int p_age, float p_income)
     {
-        super(p_userName, p_password, p_gender, p_age, p_income);
+        super(p_userName,p_gender, p_age, p_income);
     }
     
     public boolean AddMatch(Customer p_match)

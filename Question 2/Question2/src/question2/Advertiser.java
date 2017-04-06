@@ -14,10 +14,10 @@ public class Advertiser extends Customer {
     private PartnerSought m_partnerDescription;
     private ArrayList<Reply> m_replies = new ArrayList<Reply>();
     
-    Advertiser (String p_userName, String p_password, String p_gender, int p_age,
+    Advertiser (String p_userName, String p_gender, int p_age,
                 float p_income, String p_advert)
     {
-        super(p_userName, p_password, p_gender, p_age, p_income);
+        super(p_userName, p_gender, p_age, p_income);
         m_advert = p_advert;
     }
     

@@ -15,10 +15,10 @@ public class Question2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Responder g_resp = new Responder("Fred", "yyt", "Male", 50, 5000);
+        Responder g_resp = new Responder("Fred", "Male", 50, 5000);
         Customer g_cust[] = new Customer[4];
         g_cust[0] = g_resp;
-        Customer a_cust = new Customer("Mary", "HHay", "Female", 45, 50000);
+        Customer a_cust = new Customer("Mary", "Female", 45, 50000);
         
         for (Customer customer : g_cust)
         {

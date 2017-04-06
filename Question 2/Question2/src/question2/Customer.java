@@ -15,14 +15,20 @@ public class Customer {
     protected int m_age;
     protected float m_income;
     
-    Customer (String p_userName, String p_password, String p_gender,
+    Customer (String p_userName, String p_gender,
               int p_age, float p_income)
     {
         m_userName = p_userName;
-        m_password = p_password;
+        m_password = GeneratePassword();
         m_gender = p_gender;
         m_age = p_age;
         m_income = p_income;
+    }
+    
+    private String GeneratePassword()
+    {
+        String l_pass = "password";
+        return l_pass;
     }
     
     public void SetGender(String p_gender)
