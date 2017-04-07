@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package question2;
+import java.security.SecureRandom;
 /**
  *
  * @author jaknd
@@ -14,6 +15,10 @@ public class Customer {
     protected String m_gender;
     protected int m_age;
     protected float m_income;
+    
+    private static final String M_CODE = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    private static final SecureRandom M_RND = new SecureRandom();
+    private static final int M_PASSLENGTH = 10;
     
     Customer (String p_userName, String p_gender,
               int p_age, float p_income)
@@ -27,8 +32,12 @@ public class Customer {
     
     private String GeneratePassword()
     {
-        String l_pass = "password";
-        return l_pass;
+        StringBuilder l_pass = new StringBuilder(M_PASSLENGTH);
+        for (int i = 0; i < M_PASSLENGTH; i++ )
+        {
+            l_pass.append( M_CODE.charAt( M_RND.nextInt( M_CODE.length())));
+        }
+        return l_pass.toString();
     }
     
     public void SetGender(String p_gender)

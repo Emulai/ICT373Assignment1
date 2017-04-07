@@ -15,10 +15,11 @@ public class Advertiser extends Customer {
     private ArrayList<Reply> m_replies = new ArrayList<Reply>();
     
     Advertiser (String p_userName, String p_gender, int p_age,
-                float p_income, String p_advert)
+                float p_income, String p_advert, PartnerSought p_pS)
     {
         super(p_userName, p_gender, p_age, p_income);
         m_advert = p_advert;
+        m_partnerDescription = p_pS;
     }
     
     public String Advertise()
@@ -59,9 +60,22 @@ public class Advertiser extends Customer {
         return m_replies.indexOf(p_reply);
     }
     
-    /*@Override
+    @Override
     public String toString()
     {
-        return String.format(m_advert, );
-    }*/
+        String l_toString = super.toString() + "\nAdvert: " + m_advert;
+        //"\nPartner Description" + m_partnerDescription.toString();
+        if (m_partnerDescription == null)
+        {
+            System.out.println("No Partner Sought");
+        } else {
+            l_toString += m_partnerDescription.toString();
+        }
+        for (Reply reply : m_replies)
+        {
+            l_toString += reply.toString();
+        }
+        
+        return l_toString;
+    }
 }

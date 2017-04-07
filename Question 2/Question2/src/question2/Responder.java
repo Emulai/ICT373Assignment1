@@ -39,7 +39,7 @@ public class Responder extends Customer {
       
       for (Customer customer : m_matches)
       {
-          l_tString = l_tString + "\nMatches: " + customer.toString();
+          l_tString += "\nMatches: " + customer.toString();
       }
       
       return l_tString;

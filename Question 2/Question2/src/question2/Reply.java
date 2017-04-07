@@ -37,4 +37,12 @@ public class Reply {
     {
         return m_owner;
     }
+    
+    @Override
+    public String toString()
+    {
+        String l_toString = "\nOwner: " + m_owner + "\nReply Message: " + m_reply;
+        return l_toString;
+    }
+    
 }

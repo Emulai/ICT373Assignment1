@@ -76,5 +76,11 @@ public class PartnerSought {
         m_maxIncome = p_maxIncome;
     }
     
+    @Override
+    public String toString()
+    {
+        String l_toString = "\nGender: " + m_gender + "\nAge Range: " + m_minAge + "-" + m_maxAge + "\nIncome Range: $" + m_minIncome + "-$" + m_maxIncome;
+        return l_toString;
+    }
     
 }
