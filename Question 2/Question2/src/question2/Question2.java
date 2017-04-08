@@ -37,6 +37,11 @@ public class Question2 {
         
         CreateNewUser(g_cust);
         
+        for (Customer l_cust : g_cust)
+        {
+            l_cust.toString();
+        }
+        
     }
     
     public static boolean CreateNewUser(ArrayList<Customer> p_cust)
@@ -48,7 +53,7 @@ public class Question2 {
         
         while (true)
         {
-            System.out.println("New User: \n[1]Responder\n[2]Advertiser\n[3]Exit user creation\n");
+            System.out.print("New User: \n[1]Responder\n[2]Advertiser\n[3]Exit user creation\n");
             if (input.hasNextInt())
             {
                 l_menuChoice = input.nextInt();
@@ -108,7 +113,7 @@ public class Question2 {
                     return true;
                 case "n":
                 case "N":
-                    System.out.println("Returning to main menu");
+                    System.out.println("Returning to main menu...");
                     return false;
                 default:
                     System.out.println("Please enter Y or N");
@@ -134,7 +139,7 @@ public class Question2 {
         }
         l_gender = input.next();
         System.out.print("Please enter age (21-120): ");
-        while (!input.hasNext("2[0-9]|3[0-9]|4[0-9]|5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-9]|10[0-9]|11[0-9]|120"))
+        while (!input.hasNext("2[1-9]|3[0-9]|4[0-9]|5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-9]|10[0-9]|11[0-9]|120"))
         {
             System.out.println("Age must be between 21 and 120!");
             System.out.print("Please enter age (21-120): ");
@@ -149,8 +154,10 @@ public class Question2 {
             input.nextFloat();
         }
         l_income = input.nextFloat();
+        
         Responder l_resp = new Responder(l_userName, l_gender, l_age, l_income);
-        System.out.println(l_resp.toString());
+        //System.out.println(l_resp.toString());
+        p_cust.add(l_resp);
     }
     
     private static void NewAdvertiser(ArrayList<Customer> p_cust)
@@ -170,7 +177,7 @@ public class Question2 {
         }
         l_gender = input.next();
         System.out.print("Please enter age (21-120): ");
-        while (!input.hasNext("2[0-9]|3[0-9]|4[0-9]|5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-9]|10[0-9]|11[0-9]|120"))
+        while (!input.hasNext("2[1-9]|3[0-9]|4[0-9]|5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-9]|10[0-9]|11[0-9]|120"))
         {
             System.out.println("Age must be between 21 and 120!");
             System.out.print("Please enter age (21-120): ");
@@ -185,8 +192,9 @@ public class Question2 {
             input.nextFloat();
         }
         l_income = input.nextFloat();
+        input.nextLine();
         System.out.println("Please enter your description:");
-        l_advert = input.next();
+        l_advert = input.nextLine();
         System.out.print("Please enter preferred partner gender (M/F/A): ");
         while (!input.hasNext("[MFA]"))
         {
@@ -195,15 +203,43 @@ public class Question2 {
             input.next();
         }
         l_prefGen = input.next();
-        System.out.println("Please enter preferred partner age range (20 - 120): ");
-        while (!input.hasNext("2[0-9]|3[0-9]|4[0-9]|5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-9]|10[0-9]|11[0-9]\\c-"
-                            + "2[1-9]|3[0-9]|4[0-9]|5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-9]|10[0-9]|11[0-9]|120"))
+        System.out.print("Please enter minimum preferred age (21-120): ");
+        while (!input.hasNext("2[1-9]|3[0-9]|4[0-9]|5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-9]|10[0-9]|11[0-9]|120"))
         {
-            System.out.println("Age must be between 20 and 120!");
-            System.out.println("Please enter preferred partner age range (20 - 120): ");
-            input.next();
+            System.out.println("Minimum Age must be between 21 and 120!");
+            System.out.print("Please enter minimum preferred age (21-120): ");
+            input.nextInt();
         }
+        l_minA = input.nextInt();
+        System.out.print("Please enter maximum preferred age (21-120): ");
+        while (!input.hasNext("2[1-9]|3[0-9]|4[0-9]|5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-9]|10[0-9]|11[0-9]|120"))
+        {
+            System.out.println("Maximum Age must be between 21 and 120!");
+            System.out.print("Please enter maximum preferred age (21-120): ");
+            input.nextInt();
+        }
+        l_maxA = input.nextInt();
+        System.out.print("Please enter minimum preferred income: ");
+        while (!input.hasNextFloat())
+        {
+            System.out.println("Must be a number!");
+            System.out.print("Please enter minimum income: ");
+            input.nextFloat();
+        }
+        l_minIn = input.nextFloat();
+        System.out.print("Please enter maximum preferred income: ");
+        while (!input.hasNextFloat())
+        {
+            System.out.println("Must be a number!");
+            System.out.print("Please enter maximum income: ");
+            input.nextFloat();
+        }
+        l_maxIn = input.nextFloat();
         
+        PartnerSought l_pS = new PartnerSought(l_prefGen, l_minA, l_maxA, l_minIn, l_maxIn);
+        Advertiser l_adv = new Advertiser(l_userName, l_gender, l_age, l_income, l_advert, l_pS);
+        //System.out.println(l_adv.toString());
+        p_cust.add(l_adv);
     }
     
 }
