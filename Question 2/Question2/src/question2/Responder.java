@@ -32,16 +32,25 @@ public class Responder extends Customer {
         }
     }
     
+    @Override
+    public String toSafeString()
+    {
+        String l_toString = super.toSafeString();
+      
+        l_toString += "\n\n";
+        return l_toString;
+    }
+    
     @Override 
     public String toString()
     {
-      String l_tString = super.toString();
+      String l_toString = super.toString();
       
-      for (Customer customer : m_matches)
+      for (Customer i_customer : m_matches)
       {
-          l_tString += "\nMatches: " + customer.toString();
+          l_toString += "\nMatches: " + i_customer.toString();
       }
-      
-      return l_tString;
+      l_toString += "\n\n";
+      return l_toString;
     }
 }

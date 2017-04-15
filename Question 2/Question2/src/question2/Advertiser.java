@@ -60,22 +60,48 @@ public class Advertiser extends Customer {
         return m_replies.indexOf(p_reply);
     }
     
+    public boolean CheckMatch(Customer p_cust)
+    {
+            if ((p_cust.GetAge() >= m_partnerDescription.GetMinAge()) &&
+                (p_cust.GetAge() <= m_partnerDescription.GetMaxAge()))
+            {
+                if ((p_cust.GetIncome() >= m_partnerDescription.GetMinIncome()) &&
+                    (p_cust.GetIncome() <= m_partnerDescription.GetMaxIncome()))
+                {
+                    if ((p_cust.GetGender().equals(m_partnerDescription.GetGender())) ||
+                        (m_partnerDescription.equals('A')))
+                    {
+                        return true;
+                    }
+                }
+            }
+        return false;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String toSafeString()
+    {
+        String l_toString = super.toSafeString() + "\nAdvert: " + m_advert;
+        
+        l_toString += "\n\n";
+        return l_toString;
+    }
+    
     @Override
     public String toString()
     {
-        String l_toString = super.toString() + "\nAdvert: " + m_advert;
-        //"\nPartner Description" + m_partnerDescription.toString();
-        if (m_partnerDescription == null)
-        {
-            System.out.println("No Partner Sought");
-        } else {
-            l_toString += m_partnerDescription.toString();
-        }
+        String l_toString = super.toString() + "\nAdvert: " + m_advert + "\nPartner Description" + m_partnerDescription.toString();
+        
         for (Reply reply : m_replies)
         {
             l_toString += reply.toString();
         }
         
+        l_toString += "\n";
         return l_toString;
     }
 }

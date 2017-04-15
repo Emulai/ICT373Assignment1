@@ -79,7 +79,20 @@ public class PartnerSought {
     @Override
     public String toString()
     {
-        String l_toString = "\nGender: " + m_gender + "\nAge Range: " + m_minAge + "-" + m_maxAge + "\nIncome Range: $" + m_minIncome + "-$" + m_maxIncome;
+        String l_toString = "\nGender: ";
+        if (m_gender.equals("A"))
+        {
+            l_toString += "Any";
+        }
+        else if (m_gender.equals("M"))
+        {
+            l_toString += "Male";        
+        }
+        else if (m_gender.equals("F"))
+        {
+            l_toString += "Female";
+        }
+        l_toString += "; Age Range: " + m_minAge + "-" + m_maxAge + "; Income Range: $" + m_minIncome + "-$" + m_maxIncome + "\n";
         return l_toString;
     }
     

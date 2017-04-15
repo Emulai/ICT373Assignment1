@@ -80,13 +80,37 @@ public class Customer {
         return m_income;
     }
     
+    public String toSafeString()
+    {
+        String l_toString = "UserName: " + m_userName + "\nGender: ";
+        if (m_gender.equals("M"))
+        {
+            l_toString += "Male";        
+        }
+        else if (m_gender.equals("F"))
+        {
+            l_toString += "Female";
+        }
+        l_toString += "; Age: " + m_age + "; Income: " + m_income;
+        
+        return l_toString;
+    }
+    
     @Override
     public String toString()
     {
-        String l_tString = "UserName: " + m_userName + "\nPassword: " + m_password +
-                           "\nGender: " + m_gender + "\nAge: " + m_age + "\nIncome: " + m_income;
+        String l_toString = "UserName: " + m_userName + "; Password: " + m_password + "\nGender: ";
+        if (m_gender.equals("M"))
+        {
+            l_toString += "Male";        
+        }
+        else if (m_gender.equals("F"))
+        {
+            l_toString += "Female";
+        }
+        l_toString += "; Age: " + m_age + "; Income: " + m_income;
         
-        return l_tString;
+        return l_toString;
     }
     
 }
