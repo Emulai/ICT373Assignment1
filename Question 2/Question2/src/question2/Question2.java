@@ -7,12 +7,16 @@ package question2;
 import java.util.Scanner;
 import java.util.ArrayList;
 /**
- *
- * @author jaknd
+ * Main test program for Question 2
+ * @author David Nankivell
+ * 16/04/2017
+ * Question2.java
+ * Test Program for question2 package
  */
 public class Question2 {
 
     /**
+     * Main menu of program
      * @param args the command line arguments
      */
     public static void main(String[] args) {
@@ -92,6 +96,9 @@ public class Question2 {
         //System.out.println(o_dServ);
     }
     
+    /**
+     * Print student details
+     */
     private static void PrintDetails()
     {
         System.out.print("Author: David Nankivell\n"
@@ -101,6 +108,10 @@ public class Question2 {
                        + "Tutorial: Monday 1:30 - 2:30\n\n");
     }
     
+    /**
+     * Set initial Customers into DatingService
+     * @param p_dServ DatingService
+     */
     private static void InitialiseCustomers(DatingService p_dServ)
     {   
         ArrayList<PartnerSought> l_paSo = new ArrayList<>();
@@ -155,6 +166,9 @@ public class Question2 {
         }
     }
     
+    /**
+     * Print main menu
+     */
     private static void PrintMenu()
     {
         System.out.print("Welcome to the Dating Service!\n"
@@ -167,6 +181,11 @@ public class Question2 {
                            + "[6] Exit\n");
     }
     
+    /**
+     * Log user into DatingService
+     * @param p_dServ DatingService
+     * @return Boolean regarding status of user login
+     */
     private static boolean Login(DatingService p_dServ)
     {
         Scanner input = new Scanner(System.in);
@@ -195,6 +214,11 @@ public class Question2 {
         return false;
     }
     
+    /**
+     * Check for Advertiser's replies
+     * @param p_dServ DatingService
+     * @param p_cust Customer (Advertiser)
+     */
     private static void CheckReplies(DatingService p_dServ, Customer p_cust)
     {
         Scanner input = new Scanner(System.in);
@@ -241,6 +265,11 @@ public class Question2 {
         }
     }
     
+    /**
+     * Check for Responder's matches
+     * @param p_dServ DatingService
+     * @param p_cust Customer (Responder)
+     */
     private static void CheckMatches(DatingService p_dServ, Customer p_cust)
     {
         Scanner input = new Scanner(System.in);
@@ -283,6 +312,11 @@ public class Question2 {
         }
     }
     
+    /**
+     * Add a new Customer to the DatingService
+     * @param p_dServ DatingService
+     * @return Boolean regarding success of creating a new Customer
+     */
     private static boolean CreateNewUser(DatingService p_dServ)
     {
         
@@ -325,6 +359,10 @@ public class Question2 {
         }
     }
     
+    /**
+     * Check to see if new Customer will accept a payment
+     * @return Boolean regarding acceptance of payment
+     */
     private static boolean AcceptPayment()
     {
         String l_payChoice;
@@ -359,6 +397,11 @@ public class Question2 {
         }
     }
     
+    /**
+     * Add a new Responder to the DatingService
+     * @param p_dServ DatingService
+     * @return Boolean regarding success of adding new Responder
+     */
     private static boolean NewResponder(DatingService p_dServ)
     {
         Scanner input = new Scanner(System.in);
@@ -396,6 +439,11 @@ public class Question2 {
         return p_dServ.Add(l_resp);
     }
     
+    /**
+     * Add a new Advertiser to the DatingService
+     * @param p_dServ DatingService
+     * @return Boolean regarding success of adding new Advertiser
+     */
     private static boolean NewAdvertiser(DatingService p_dServ)
     {
         Scanner input = new Scanner(System.in);
@@ -477,6 +525,11 @@ public class Question2 {
         return p_dServ.Add(l_adv);
     }
     
+    /**
+     * Method to delete a Customer from the DatingService
+     * @param p_dServ DatingService
+     * @return Boolean regarding the success of removing the Customer
+     */
     private static boolean DeleteUser(DatingService p_dServ)
     {
         ArrayList<Customer> l_cust = p_dServ.ListCustomers();
@@ -508,6 +561,10 @@ public class Question2 {
         return false;
     }
     
+    /**
+     * Method to list all Advertisers in the DatingService
+     * @param p_dServ DatingService
+     */
     private static void ListAdvertisers(DatingService p_dServ)
     {
         Scanner input = new Scanner(System.in);
@@ -525,6 +582,10 @@ public class Question2 {
         System.out.print("\n");
     }
     
+    /**
+     * Method to list all Responders in the DatingService
+     * @param p_dServ DatingService
+     */
     private static void ListResponders(DatingService p_dServ)
     {
         Scanner input = new Scanner(System.in);
