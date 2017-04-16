@@ -83,6 +83,7 @@ public class Question2 {
                         ListResponders(o_dServ);
                         break;
                     case 6:     //Exit
+                        System.out.println("Exiting Dating Service...");
                         o_menu = false;
                         break;
                 }
@@ -552,11 +553,8 @@ public class Question2 {
                     System.out.println("Incorrect Password, returning to menu...");
                 }
             }
-            else
-            {
-                System.out.println("No Matching User, returning to menu...");
-            }
         }
+        System.out.println("No Matching User, returning to menu...");
         return false;
     }
     
