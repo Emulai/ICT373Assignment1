@@ -16,24 +16,7 @@ public class Question2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //PartnerSought l_pS = new PartnerSought("Female", 25, 30, 5000, 50000);
-        //Advertiser g_resp = new Advertiser("Fred", "Male", 50, 5000, "Wants a dudebro to share"
-        //        + " bro times with bro, we gonna be the broiest bros ever bro", l_pS);
         
-        //ArrayList<Customer> g_cust = new ArrayList<>();
-       /** g_cust[0] = g_resp;
-        Customer a_cust = new Customer("Mary", "Female", 45, 50000);
-        
-        for (Customer customer : g_cust)
-        {
-            System.out.println(customer.toString());
-            if (g_cust[0] instanceof Responder)
-            {
-                Responder t_resp = (Responder)g_cust[0];
-                t_resp.AddMatch(a_cust);
-                System.out.print(t_resp.toString());
-            }
-        }*/
         PrintDetails();
        
         DatingService o_dServ = new DatingService();
@@ -62,11 +45,11 @@ public class Question2 {
                     case 1:     //Login
                         if (Login(o_dServ))
                         {
-                            
+                            System.out.println("Successful Login");
                         }
                         else
                         {
-                            
+                            System.out.println("Unsuccessful Login");
                         }
                         break;
                     case 2:     //New User
@@ -119,7 +102,7 @@ public class Question2 {
     }
     
     private static void InitialiseCustomers(DatingService p_dServ)
-    {
+    {   
         ArrayList<PartnerSought> l_paSo = new ArrayList<>();
         ArrayList<String> l_advert = new ArrayList<>();
         ArrayList<Advertiser> l_advT = new ArrayList<>();
@@ -199,26 +182,104 @@ public class Question2 {
                 Customer l_cust = p_dServ.Login(l_user, l_pass);
                 if (l_cust instanceof Advertiser)
                 {
-                    
+                    CheckReplies(p_dServ, l_cust);
+                    return true;
                 }
                 else if (l_cust instanceof Responder)
                 {
                     CheckMatches(p_dServ, l_cust);
+                    return true;
                 }
-                return true;
             }
         }
         return false;
     }
     
+    private static void CheckReplies(DatingService p_dServ, Customer p_cust)
+    {
+        Scanner input = new Scanner(System.in);
+        Advertiser l_advT = (Advertiser)p_cust;
+        ArrayList<Reply> l_replies = l_advT.GetReplies();
+        ArrayList<Reply> l_delReps = new ArrayList<>();
+        System.out.println("Replies");
+        
+        if (!l_replies.isEmpty())
+        {
+            for (Reply i_reply : l_replies)
+            {
+                System.out.print(i_reply.toString());
+                System.out.print("Do you wish to keep this message? (Y/N): ");
+                if (!input.hasNext("[ynYN]"))
+                {
+                    System.out.print("Please enter (Y/N): ");
+                }
+                String l_repChoice = input.next();
+                input.nextLine();
+                switch (l_repChoice)
+                {
+                    case "y":
+                    case "Y":
+                        System.out.println("Keeping message");
+                        break;
+                    case "n":
+                    case "N":
+                        System.out.println("Deleting message...");
+                        l_delReps.add(i_reply);
+                        System.out.println("Message deleted");
+                        break;
+                }
+                System.out.println("Continuing...");
+            }
+            for (Reply i_reply : l_delReps)
+            {
+                l_advT.RemoveReply(i_reply);
+            }
+        }
+        else
+        {
+            System.out.println("No Replies");
+        }
+    }
+    
     private static void CheckMatches(DatingService p_dServ, Customer p_cust)
     {
+        Scanner input = new Scanner(System.in);
         ArrayList<Advertiser> l_advT = p_dServ.CheckMatches(p_cust);
         System.out.println("Matches");
         
-        for (Advertiser i_advT : l_advT)
+        if (!l_advT.isEmpty())
         {
-            System.out.print(i_advT.toSafeString());
+            for (Advertiser i_advT : l_advT)
+            {
+                System.out.print(i_advT.toSafeString());
+                System.out.print("Do you wish to message this user? (Y/N): ");
+                if (!input.hasNext("[ynYN]"))
+                {
+                    System.out.print("Please enter (Y/N): ");
+                }
+                String l_mesChoice = input.next();
+                input.nextLine();
+                switch (l_mesChoice)
+                {
+                    case "y":
+                    case "Y":
+                        System.out.println("Please enter message: ");
+                        String l_message = input.nextLine();
+                        Reply l_msg = new Reply(p_cust, l_message);
+                        i_advT.AddReply(l_msg);
+                        System.out.println("Message added!");
+                        break;
+                    case "n":
+                    case "N":
+                        System.out.println("No message will be sent");
+                        break;
+                }
+                System.out.println("Continuing...");
+            }
+        }
+        else
+        {
+            System.out.println("No Matches");
         }
     }
     
@@ -332,7 +393,6 @@ public class Question2 {
         l_income = input.nextFloat();
         
         Responder l_resp = new Responder(l_userName, l_gender, l_age, l_income);
-        //System.out.println(l_resp.toString());
         return p_dServ.Add(l_resp);
     }
     
@@ -414,7 +474,6 @@ public class Question2 {
         
         PartnerSought l_pS = new PartnerSought(l_prefGen, l_minA, l_maxA, l_minIn, l_maxIn);
         Advertiser l_adv = new Advertiser(l_userName, l_gender, l_age, l_income, l_advert, l_pS);
-        //System.out.println(l_adv.toString());
         return p_dServ.Add(l_adv);
     }
     
@@ -474,7 +533,7 @@ public class Question2 {
         String l_string = "Responders\n";
         for (Responder i_resp : l_resp)
         {
-            l_string += i_resp.toString();
+            l_string += i_resp.toString() + "\n\n";
         }
         System.out.print(l_string);
         

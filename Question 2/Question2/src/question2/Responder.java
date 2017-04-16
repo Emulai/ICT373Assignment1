@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class Responder extends Customer {
     
-    private ArrayList<Customer> m_matches = new ArrayList<Customer>();
+    private ArrayList<Customer> m_matches = new ArrayList<>();
     
     Responder(String p_userName, String p_gender,
               int p_age, float p_income)
@@ -21,15 +21,12 @@ public class Responder extends Customer {
     
     public boolean AddMatch(Customer p_match)
     {
-        return (m_matches.add(p_match));
+        return m_matches.add(p_match);
     }
     
-    public void RemoveMatch(Customer p_match)
+    public boolean RemoveMatch(Customer p_match)
     {
-        if (m_matches.indexOf(p_match) != -1)
-        {
-            m_matches.remove(m_matches.indexOf(p_match));
-        }
+            return m_matches.remove(p_match);
     }
     
     @Override
@@ -50,7 +47,6 @@ public class Responder extends Customer {
       {
           l_toString += "\nMatches: " + i_customer.toString();
       }
-      l_toString += "\n\n";
       return l_toString;
     }
 }

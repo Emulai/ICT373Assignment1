@@ -13,9 +13,10 @@ public class Reply {
     private Customer m_owner;
     private String m_reply;
     
-    Reply()
+    Reply(Customer p_cust, String p_reply)
     {
-        
+        m_owner = p_cust;
+        m_reply = p_reply;
     }
     
     public void SetReply(String p_reply)
@@ -41,7 +42,7 @@ public class Reply {
     @Override
     public String toString()
     {
-        String l_toString = "\nOwner: " + m_owner + "\nReply Message: " + m_reply;
+        String l_toString = "Owner: " + m_owner + "\nReply Message: " + m_reply + "\n";
         return l_toString;
     }
     

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Advertiser extends Customer {
     private String m_advert;
     private PartnerSought m_partnerDescription;
-    private ArrayList<Reply> m_replies = new ArrayList<Reply>();
+    private ArrayList<Reply> m_replies = new ArrayList<>();
     
     Advertiser (String p_userName, String p_gender, int p_age,
                 float p_income, String p_advert, PartnerSought p_pS)
@@ -47,17 +47,14 @@ public class Advertiser extends Customer {
         return m_replies.add(p_reply);
     }
     
-    public void RemoveReply(Reply p_reply)
+    public boolean RemoveReply(Reply p_reply)
     {
-        if (GetReplyIndex(p_reply) != -1)
-        {
-            m_replies.remove(GetReplyIndex(p_reply));
-        }
+        return m_replies.remove(p_reply);
     }
     
-    private int GetReplyIndex(Reply p_reply)
+    public ArrayList<Reply> GetReplies()
     {
-        return m_replies.indexOf(p_reply);
+        return m_replies;
     }
     
     public boolean CheckMatch(Customer p_cust)
